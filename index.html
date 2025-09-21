@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wilson Gikuma Githure Portfolio</title>
+  <meta name="description" content="Portfolio of Wilson Gikuma Githure, Electrical and Electronic Engineering student at Chuka University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --max-w: 1100px;
+      --gap: 1.25rem;
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#071022 140%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-w)}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+    .brand{display:flex;gap:.75rem;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:grid;place-items:center;font-weight:700;color:white}
+    nav{display:flex;gap:1rem;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+    .cta{background:linear-gradient(90deg,var(--accent),#4f46e5);padding:.55rem .8rem;border-radius:10px;color:white;text-decoration:none;font-weight:700}
+    .menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:.35rem;border-radius:8px}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:var(--gap);align-items:center;margin-bottom:1.5rem}
+    .intro h1{font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0}
+    .intro p{color:var(--muted);margin-top:.6rem}
+    .hero-actions{margin-top:1rem;display:flex;gap:.6rem}
+    .btn{padding:.6rem .9rem;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,.6);}
+    .avatar{width:100%;border-radius:12px;display:block}
+    .socials{display:flex;gap:.5rem;margin-top:.6rem}
+    .chip{padding:.35rem .6rem;border-radius:999px;background:var(--glass);font-weight:600;color:var(--muted);font-size:.88rem}
+
+    section{margin:1.25rem 0;padding:1rem;background:transparent}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:var(--radius);}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .project{padding:1rem;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+    .project h4{margin:.25rem 0}
+    .project p{color:var(--muted);font-size:.9rem}
+
+    .skills{display:flex;flex-wrap:wrap;gap:.6rem}
+    .skill{min-width:160px;flex:1}
+    .bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);border-radius:999px}
+
+    form{display:grid;gap:.6rem}
+    input,textarea{padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+    footer{margin-top:1.25rem;color:var(--muted);font-size:.9rem;text-align:center}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6));z-index:50;padding:1rem}
+    .modal.open{display:flex}
+    .modal-card{width:min(900px,96%);background:linear-gradient(180deg,#071022,#061126);padding:1rem;border-radius:12px}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+      .menu-btn{display:inline-flex}
+    }
+    @media (max-width:620px){
+      .projects{grid-template-columns:1fr}
+      .profile-card{order:2}
+    }
+
+    :root.light{--bg:#f7fafc;--card:#ffffff;--muted:#475569;--accent:#7c3aed;color-scheme:light;color:#071022}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">WGG</div>
+        <div>
+          <div style="font-weight:700">Wilson Gikuma Githure</div>
+          <div style="font-size:.85rem;color:var(--muted);">Electrical & Electronic Engineer</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:.6rem;align-items:center">
+        <button class="menu-btn" id="menuToggle" aria-expanded="false">☰</button>
+        <button class="btn btn-ghost" id="themeToggle" aria-pressed="false">Toggle</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="intro">
+          <h1>Hi — I'm <span style="color:var(--accent)">Wilson Gikuma Githure</span>.</h1>
+          <p>
+            I am a third-year Electrical and Electronic Engineering student at <b>Chuka University</b>,
+            passionate about designing sustainable solutions in <b>power systems, electronics, renewable energy, and automation</b>.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn cta">View Projects</a>
+            <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          </div>
+        </div>
+        <div class="profile-card">
+            <img src="images/wilson.jpg" alt="Wilson Gikuma Githure" class="avatar"/>
+          <div class="socials">
+            <span class="chip">Engineer</span>
+            <span class="chip">Student</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="card">
+        <h2>About Me</h2>
+        <p>
+          My name is <b>Wilson Gikuma Githure</b>, a third-year student pursuing a degree in
+          <b>Electrical and Electronic Engineering</b> at <b>Chuka University</b>. I have a strong foundation
+          in <b>circuit design, power systems, control engineering, and embedded systems</b>. I am particularly
+          interested in <b>renewable energy</b> and <b>automation technologies</b> that drive sustainable progress.
+        </p>
+        <p>
+          Outside of academics, I enjoy reading technology journals, experimenting with new tools, and contributing to
+          community initiatives. My ambition is to contribute to transformative projects in smart technologies,
+          renewable energy, and industrial automation.
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="card">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <h4>Solar-Powered Charging System</h4>
+            <p>Designed a prototype for a renewable energy charging system for small devices.</p>
+          </div>
+          <div class="project">
+            <h4>Microcontroller-Based Automation</h4>
+            <p>Built an embedded system project using Arduino for automated lighting control.</p>
+          </div>
+          <div class="project">
+            <h4>Power System Simulation</h4>
+            <p>Worked on a simulation of power distribution using MATLAB/Simulink for coursework.</p>
+          </div>
+        </div>
+      </section>
+
+<!--skills-->
+      <section id="skills" class="card">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="skill">
+            <div>Power Systems</div>
+            <div class="bar"><span style="width:80%"></span></div>
+          </div>
+          <div class="skill">
+            <div>Electronics & Circuit Design</div>
+            <div class="bar"><span style="width:85%"></span></div>
+          </div>
+          <div class="skill">
+            <div>Embedded Systems (Arduino, Microcontrollers)</div>
+            <div class="bar"><span style="width:75%"></span></div>
+          </div>
+          <div class="skill">
+            <div>MATLAB / Simulink</div>
+            <div class="bar"><span style="width:70%"></span></div>
+          </div>
+          <div class="skill">
+            <div>Automation & Control</div>
+            <div class="bar"><span style="width:65%"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="card">
+        <h2>Contact Me</h2>
+        <table>
+          <row1>email</row1>
+          <row2>Whatsapp</row2>
+        </table>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message"></textarea>
+          <button class="btn cta" type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Wilson Gikuma Githure. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle=document.getElementById("themeToggle");
+    const root=document.documentElement;
+    themeToggle.addEventListener("click",()=>{
+      root.classList.toggle("light");
+      themeToggle.setAttribute("aria-pressed",root.classList.contains("light"));
+    });
+    const menuToggle=document.getElementById("menuToggle");
+    const nav=document.querySelector("nav");
+    menuToggle.addEventListener("click",()=>{
+      if(nav.style.display==="flex"){nav.style.display="none"}else{nav.style.display="flex"}
+    });
+  </script>
+</body>
+</html>
